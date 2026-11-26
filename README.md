@@ -22,15 +22,28 @@
 ![任务管理列表](docs/images/task-list.png)
 
 新增任务：选择任务名称与调度类型，可配置任务参数、异常通知方式（短信 / 电话）、通知号码、异常次数与通知内容。
-
-![新增任务](docs/images/task-create.png)
-
+<br>
+<br>
+<br>
+<div align="center" style="margin:20px 0;">
+  <img src = "docs/images/task-create.png" align="center" width="50%"> </img>
+</div>
+<br>
+<br>
+<br>
 任务执行日志：按触发时间、开始时间、结束时间、执行状态、耗时下限等条件查询，支持分页。
+<br>
+<br>
+<br>
 
 ![任务执行日志](docs/images/job-log-list.png)
-
+<br>
+<br>
+<br>
 日志详情：展示单次执行的完整信息、执行结果与异常信息。
-
+<br>
+<br>
+<br>
 ![执行日志详情](docs/images/job-log-detail.png)
 
 ## 模块结构
