@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>expressway-control-platform</artifactId>
+        <groupId>com.shouxun</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <!--不能以quartz开头，jboot默认不扫描quartz开头的包
+    导致@Bean @Table失效，@Inject注入的是兜底创建的类一些方法不能调用-->
+    <artifactId>sxs-quartz-module</artifactId>
+    <packaging>jar</packaging>
+    <name>Sxs Quartz Module</name>
+    <description>Quartz-based scheduled task management module</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <logback-core.version>1.2.9</logback-core.version>
+        <logback-classic.version>1.2.9</logback-classic.version>
+        <quartz.version>2.5.2</quartz.version>
+        <lombok.versioin>1.18.46</lombok.versioin>
+        <hutool.version>5.8.25</hutool.version>
+    </properties>
+
+    <dependencies>
+        <!-- Quartz core -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>${quartz.version}</version>
+        </dependency>
+
+        <!-- Jboot framework (for plugin integration and class scanning) -->
+        <dependency>
+            <groupId>io.jboot</groupId>
+            <artifactId>jboot</artifactId>
+            <version>4.1.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-classic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback-core.version}</version>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.versioin}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.cronutils</groupId>
+            <artifactId>cron-utils</artifactId>
+            <version>9.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>it.burning</groupId>
+            <artifactId>cron-expression-descriptor</artifactId>
+            <version>1.2.10</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>
