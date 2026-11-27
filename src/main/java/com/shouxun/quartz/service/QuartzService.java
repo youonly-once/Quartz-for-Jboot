@@ -90,15 +90,15 @@ public class QuartzService {
                         x.JOB_NAME,
                         x.JOB_GROUP,
                         x.EXECUTE_STATUS,
-                        x.FIRE_TIME,x.TRIGGER_NAME,x.DURATION
+                        x.FIRE_TIME,x.DURATION
                     FROM (
                         SELECT
                             a.JOB_NAME,
                             a.JOB_GROUP,
                             a.EXECUTE_STATUS,
-                            a.FIRE_TIME,a.TRIGGER_NAME,a.DURATION,
+                            a.FIRE_TIME,a.DURATION,
                             ROW_NUMBER() OVER (
-                                PARTITION BY a.JOB_NAME, a.JOB_GROUP,a.TRIGGER_NAME
+                                PARTITION BY a.JOB_NAME, a.JOB_GROUP
                                 ORDER BY a.FIRE_TIME DESC
                             ) AS RN
                         FROM QUARTZ_JOB_LOG a
@@ -107,7 +107,6 @@ public class QuartzService {
                 ) l
                     ON l.JOB_NAME = j.JOB_NAME
                     AND l.JOB_GROUP = j.JOB_GROUP
-                		AND l.TRIGGER_NAME =  t.TRIGGER_NAME
                 
                 WHERE 1 = 1
                 """;
